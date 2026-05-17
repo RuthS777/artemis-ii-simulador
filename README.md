@@ -8,7 +8,7 @@
 | Jorge | Por definir |
 | Angel | Por definir |
 | Robert | Por definir |
-| Enzo | Por definir |
+| Enzo Orozco | Por definir |
 
 ## Nombre Clave de Misión
 *Por definir*
