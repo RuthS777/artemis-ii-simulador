@@ -1,0 +1,17 @@
+# Maven
+target/
+*.class
+
+# IDEs
+.idea/
+.eclipse/
+*.iml
+.vscode/
+
+# Orekit datos locales
+orekit-data/
+orekit-data-master/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
