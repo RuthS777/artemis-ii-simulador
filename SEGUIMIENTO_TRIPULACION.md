@@ -4,7 +4,11 @@
 
 ---
 
-## Semana 1 — [15-05-2026]
+## Semana 1 — [mayo-junio]
+**Descripción:** No hubo ecuentros
+**Proceso:** Trello, comunicación por el grupo y trabajo en Google Docs
+
+## Entregable 1 — [15-05-2026]
 **Duración:** 18:31 minutos
 **Presentes:** [Angel Lachapel, Jorge Rosario, Ruth Suero]
 
