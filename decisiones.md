@@ -33,7 +33,7 @@ Razón:  Se detectaron errores de notación en diagramas ya elaborados por el eq
 También se detectó que uno de los diagramas etiquetados como "de estado" correspondía en realidad a un diagrama de actividad, y que el diagrama de estado restante no representaba estados compuestos.
 
 ### -Revisión de las secciones introductorias y de restricciones del documento 
-Razón: Para revisar que las secciones 1.1, 1.2, 1.3, 2 y 3 del documento reflejaran estos conceptos de forma coherente con el resto del contenido, sin agregar apartados aislados que rompieran la fluidez del documento, identificando cualquier concepto y término que se haya pasado por alto a medida que el documento se iba actualizando o corrigiendo. 
+Razón: Para revisar que las secciones 1.1, 1.2, 1.3, 2 y 3 del documento reflejaran estos conceptos de forma coherente con el resto del contenido, sin agregar apartados aislados que rompieran la fluidez del documento, identificando cualquier concepto y término que se haya pasado por alto a medida que el documento se iba actualizando o corrigiendo.
 
        
      nota: todos estos usos fueron de verificación, corrección y comparación con la rúbrica y la notación UML formal. Todo el contenido        técnico, las decisiones de diseño y el criterio final sobre qué incluir en el documento fueron responsabilidad y resultado del            trabajo de todos los implicados (dos miembros del grupo y aportes de un tercero).
