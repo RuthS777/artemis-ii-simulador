@@ -1,7 +1,4 @@
-   Decisiones técnicas
-
-
-
+Decisiones tecnicas
 
 # Cambios relevantes
 
