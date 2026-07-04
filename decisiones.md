@@ -1,6 +1,6 @@
-# Decisiones tecnicas
+Decisiones tecnicas
 
-## Cambios relevantes
+# Cambios relevantes
 
 ## Uso de la IA 
 A lo largo del entregable #0 y #1
