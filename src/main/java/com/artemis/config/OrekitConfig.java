@@ -3,25 +3,46 @@ package com.artemis.config;
 import java.io.File;
 
 import org.orekit.data.DataContext;
-import org.orekit.data.DataProvidersManager;
 import org.orekit.data.DirectoryCrawler;
 
 public class OrekitConfig {
 
-    /**
-     * Inicializa los datos de Orekit.
-     * Debe ejecutarse antes de utilizar cualquier clase de Orekit.
-     */
     public static void inicializar() {
 
-        // Cambiar esta ruta por la ubicación local de orekit-data
-        File orekitData = new File("C:\\Users\\celes\\OneDrive\\Escritorio\\Orekit\\orekit-data-main");
+        File orekitData = new File(resolveOrekitDataPath());
 
-        DataProvidersManager manager =
-                DataContext.getDefault().getDataProvidersManager();
+        if (!orekitData.exists()) {
+            throw new IllegalStateException(
+                    "No se encontró la carpeta orekit-data.\n" +
+                            "Ruta esperada: " + orekitData.getAbsolutePath());
+        }
 
-        manager.addProvider(new DirectoryCrawler(orekitData));
+        DataContext.getDefault()
+                .getDataProvidersManager()
+                .addProvider(new DirectoryCrawler(orekitData));
 
-        System.out.println("Datos de Orekit cargados correctamente.");
+        IO.println("Datos de Orekit cargados correctamente.");
     }
+
+    /**
+     * Busca automáticamente la carpeta orekit-data dentro del proyecto.
+     */
+    private static String resolveOrekitDataPath() {
+
+        String[] rutas = {
+                "orekit-data",
+                "orekit-data-main",
+                "data/orekit-data",
+                "data/orekit-data-main"
+        };
+
+        for (String ruta : rutas) {
+            if (new File(ruta).exists()) {
+                return ruta;
+            }
+        }
+
+        return "orekit-data";
+    }
+
 }

@@ -1,0 +1,51 @@
+Simulación Artemis II - Propagación LEO iniciada
+Datos de Orekit cargados correctamente.
+Maniobra TLI agregada.
+2000-01-01T23:57:55.816Z -> Distancia a la Tierra: 110144.80 km
+2000-01-02T11:57:55.816Z -> Distancia a la Tierra: 188821.25 km
+2000-01-02T23:57:55.816Z -> Distancia a la Tierra: 246355.41 km
+2000-01-03T11:57:55.816Z -> Distancia a la Tierra: 291883.26 km
+2000-01-03T23:57:55.816Z -> Distancia a la Tierra: 328883.01 km
+2000-01-04T11:57:55.816Z -> Distancia a la Tierra: 359152.09 km
+2000-01-04T23:57:55.816Z -> Distancia a la Tierra: 383762.66 km
+2000-01-05T11:57:55.816Z -> Distancia a la Tierra: 403406.61 km
+2000-01-05T23:57:55.816Z -> Distancia a la Tierra: 418549.23 km
+2000-01-06T11:57:55.816Z -> Distancia a la Tierra: 429506.93 km
+2000-01-06T23:57:55.816Z -> Distancia a la Tierra: 436489.75 km
+2000-01-07T11:57:55.816Z -> Distancia a la Tierra: 439625.17 km
+2000-01-07T23:57:55.816Z -> Distancia a la Tierra: 438970.97 km
+2000-01-08T11:57:55.816Z -> Distancia a la Tierra: 434520.35 km
+2000-01-08T23:57:55.816Z -> Distancia a la Tierra: 426200.89 km
+2000-01-09T11:57:55.816Z -> Distancia a la Tierra: 413866.86 km
+2000-01-09T23:57:55.816Z -> Distancia a la Tierra: 397283.03 km
+2000-01-10T11:57:55.816Z -> Distancia a la Tierra: 376095.47 km
+2000-01-10T23:57:55.816Z -> Distancia a la Tierra: 349779.33 km
+2000-01-11T11:57:55.816Z -> Distancia a la Tierra: 317541.32 km
+
+===== RESULTADOS =====
+Simulación completada.
+Duración: 10 días.
+Puntos registrados: 14401
+
+===== ANÁLISIS DEL SOBREVUELO =====
+Menor distancia a la Luna: 334788.20 km
+Instante del mayor acercamiento:
+2000-01-02T13:47:55.816Z
+===================================
+Posición final:
+{-288,232,148.7072311; -115,718,051.39472178; -65,823,105.98454701}
+Velocidad final:
+{836.4510019002; 130.9852486174; 78.9621952165}
+
+
+===== SPIKE TLI =====
+Órbita creada correctamente.
+NumericalPropagator configurado.
+Gravedad terrestre, Luna y Sol agregados.
+Maniobra TLI configurada.
+Altura inicial: 185.0 km
+Masa: 26000.0 kg
+Posición final:
+{-288,232,148.7072311; -115,718,051.39472178; -65,823,105.98454701}
+=====================
+Simulación finalizada
