@@ -14,13 +14,10 @@ Proyecto académico de la asignatura INF-272-01, orientado al desarrollo de un s
 
 # Tripulación 2
 
-| Integrante | Rol | Siglas |
+| Integrante | Rol principal | Siglas | Otros roles | Siglas |
 |---|---|---|
-| Ruth Suero | Comandante / Gestor de Proyectos | CDR |
-| Jorge Rosario | Ingeniero de Requisitos | REQ |
-| Angel Lachapel | Arquitecto de Software | ARCH |
-| Robert Matos | Oficial de Dinámica de Vuelo | FDO |
-| Enzo Orozco | Comunicador de Cápsula / Líder de Interfaz | CAPCOM |
+| Ruth Suero | Comandante / Gestor de Proyectos | CDR | Ingeniero de Requisitos | REQ |
+| Angel Lachapel | Arquitecto de Software | ARCH | Oficial de Dinámica de Vuelo/Comunicador de Cápsula/Líder de Interfaz | FDO/CAPCOM |
 
 ---
 
@@ -113,6 +110,44 @@ Cada commit debe iniciar con una etiqueta que identifique el área modificada.
 - Git
 - GitHub
 - Visual Studio Code
+
+---
+## Requisitos
+
+Antes de ejecutar el proyecto es necesario contar con:
+
+- Java 25 o superior.
+- Apache Maven.
+- Conexión a Internet para obtener las dependencias de Maven (la primera vez).
+- Carpeta `orekit-data` configurada correctamente para la ejecución del simulador.
+
+---
+
+## Compilación
+
+Para compilar el proyecto, ejecutar el siguiente comando desde la raíz del proyecto:
+
+```bash
+mvn clean package
+```
+
+Si la compilación finaliza correctamente, Maven generará el archivo JAR dentro de la carpeta `target`.
+
+---
+
+## Ejecución
+
+Para ejecutar el simulador mediante Maven:
+
+```bash
+mvn exec:java
+```
+
+También puede ejecutarse desde el entorno de desarrollo utilizando la clase principal:
+
+```text
+com.artemis.Main
+```
 
 ---
 
