@@ -1,8 +1,6 @@
    Decisiones tecnicas
 
 
-
-
 # Cambios relevantes
 
 ## Uso de la IA 
@@ -52,3 +50,112 @@ A lo largo del entregable #3
 Razón: Se utilizó la IA para consultar el uso de algunas clases y métodos de Orekit, así como para identificar posibles causas de errores de compilación relacionados con dependencias, configuración del proyecto y compatibilidad entre versiones de la biblioteca durante la implementación del Spike TLI.         ### -Apoyo en la revisión y organización del código
 
 Razón: Se utilizó la IA para identificar código redundante, mejorar la organización de algunas clases y revisar la estructura final del proyecto antes de integrarlo al repositorio, sin modificar las decisiones de diseño adoptadas por el equipo.
+
+# Registros de Decisiones de Arquitectura (ADR)
+
+## ADR-001 — Uso de propagación numérica con Orekit
+
+**Estado:** Aceptada
+
+### Contexto
+
+El simulador necesita representar una trayectoria lunar a partir de una órbita inicial terrestre y una maniobra de Inyección Translunar (TLI). El proyecto utiliza Java y la librería Orekit como parte del stack tecnológico establecido.
+
+La simulación requiere considerar la gravedad terrestre mediante armónicos esféricos, así como la influencia gravitatoria de la Luna y el Sol. También es necesario aplicar una maniobra impulsiva durante la propagación y registrar los puntos de la trayectoria.
+
+### Decisión
+
+Se decidió utilizar el `NumericalPropagator` de Orekit como motor principal de propagación orbital, configurado con un integrador numérico adaptativo y los modelos de fuerza requeridos para la simulación.
+
+La maniobra TLI se representa mediante un `ImpulseManeuver` durante la propagación.
+
+### Alternativas consideradas
+
+- **Propagación analítica mediante ecuaciones simplificadas:** descartada porque no permite representar adecuadamente la influencia de múltiples cuerpos y las maniobras requeridas.
+- **Implementar un propagador orbital propio:** descartada por la complejidad, el riesgo de errores numéricos y el tiempo disponible para el proyecto.
+- **Utilizar únicamente una órbita de Kepler sin perturbaciones:** descartada porque no representa las condiciones necesarias para una trayectoria lunar.
+
+### Consecuencias
+
+**Positivas:**
+- Permite utilizar modelos físicos establecidos por Orekit.
+- Facilita la incorporación de la gravedad terrestre, lunar y solar.
+- Permite modelar la TLI como una maniobra impulsiva.
+- Reduce la necesidad de implementar matemáticas orbitales desde cero.
+
+**Negativas:**
+- La configuración de Orekit es más compleja que una propagación simplificada.
+- El simulador depende de los datos y configuraciones requeridos por Orekit.
+- Los resultados dependen de la fidelidad de los modelos de fuerzas utilizados.
+
+## ADR-002 — Separación de la propagación y la interfaz JavaFX
+
+**Estado:** Aceptada
+
+### Contexto
+
+La propagación orbital puede requerir un tiempo considerable debido a la cantidad de cálculos realizados por Orekit. Ejecutarla directamente en el hilo de JavaFX podría bloquear la interfaz y provocar que la ventana deje de responder mientras se ejecuta una simulación.
+
+Además, la interfaz necesita reproducir posteriormente los puntos calculados y mostrar los valores de telemetría.
+
+### Decisión
+
+Se decidió separar la ejecución de la simulación de la interfaz gráfica.
+
+La propagación se ejecuta mediante una tarea independiente (`SimulacionTask`) y devuelve los resultados de la simulación. JavaFX utiliza posteriormente esos resultados para actualizar la visualización, la trayectoria y la telemetría.
+
+### Alternativas consideradas
+
+- **Ejecutar la propagación directamente desde JavaFX:** descartada porque puede bloquear el hilo de interfaz durante los cálculos.
+- **Actualizar la interfaz durante cada paso de propagación:** descartada porque aumentaría el acoplamiento entre el motor orbital y la interfaz.
+- **Ejecutar toda la simulación y actualizar la interfaz posteriormente:** elegida como base porque permite separar claramente el cálculo de la visualización.
+
+### Consecuencias
+
+**Positivas:**
+- La interfaz puede mantenerse responsiva mientras se ejecuta la simulación.
+- Se reduce el acoplamiento entre el motor orbital y JavaFX.
+- Los resultados pueden reutilizarse para reproducir la trayectoria.
+- Facilita las pruebas del motor orbital independientemente de la interfaz.
+
+**Negativas:**
+- Es necesario gestionar correctamente la comunicación entre la tarea de simulación y JavaFX.
+- Los resultados deben almacenarse antes de iniciar la reproducción.
+- La actualización de la interfaz requiere mecanismos propios de JavaFX para trabajar con el hilo gráfico.
+
+
+## ADR-003 — Visualización orbital 2D mediante JavaFX Canvas
+
+**Estado:** Aceptada
+
+### Contexto
+
+El simulador necesita proporcionar una representación visual de la misión que permita observar la Tierra, la Luna, la nave espacial y el recorrido de la trayectoria.
+
+El alcance obligatorio requiere una visualización orbital 2D como mínimo. El proyecto también tiene restricciones de tiempo y no requiere una representación tridimensional para cumplir su funcionalidad principal.
+
+### Decisión
+
+Se decidió utilizar JavaFX con un `Canvas` para construir una representación orbital 2D.
+
+La visualización representa la Tierra, la Luna, la nave espacial y el rastro de la trayectoria. La animación utiliza los puntos previamente calculados por el motor de simulación.
+
+### Alternativas consideradas
+
+- **Visualización 3D con JavaFX:** descartada porque aumenta considerablemente la complejidad de implementación y no es necesaria para cumplir el alcance obligatorio.
+- **Utilizar una librería gráfica externa:** descartada para evitar agregar dependencias y complejidad al proyecto.
+- **Utilizar únicamente gráficos estáticos:** descartada porque no permitiría representar adecuadamente la reproducción de la trayectoria.
+
+### Consecuencias
+
+**Positivas:**
+- Cumple el requisito de visualización orbital 2D.
+- Mantiene la interfaz relativamente sencilla.
+- Permite representar y animar la trayectoria.
+- Evita la complejidad adicional de una solución 3D.
+- Facilita la integración con los puntos calculados por la simulación.
+
+**Negativas:**
+- La representación no proporciona una vista tridimensional de la misión.
+- La escala visual debe adaptarse para representar correctamente distancias orbitales muy diferentes.
+- La visualización es una representación gráfica y no una reproducción tridimensional físicamente proporcional del espacio.
