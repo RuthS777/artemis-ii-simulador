@@ -152,5 +152,4 @@ com.artemis.Main
 ---
 
 ## Estado del Proyecto
-
-En desarrollo... ^_^
+Casi terminado
