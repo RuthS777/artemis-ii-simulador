@@ -69,6 +69,7 @@ Razón: Se utilizó la IA como apoyo durante la revisión final de los documento
 Nota: Los usos de IA descritos fueron de apoyo, orientación, revisión y corrección. Las decisiones finales sobre el código, la arquitectura, las pruebas, la documentación y el contenido entregado fueron tomadas y verificadas por los integrantes del equipo.
 
 
+
 # Registros de Decisiones de Arquitectura (ADR)
 
 ## ADR-001 — Uso de propagación numérica con Orekit
