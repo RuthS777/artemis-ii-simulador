@@ -36,3 +36,9 @@ target/
 # Sistema operativo
 .DS_Store
 Thumbs.db
+
+# Eclipse
+.eclipse/
+
+# Caché de datos de Orekit
+orekit-data/
