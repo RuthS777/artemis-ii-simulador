@@ -51,6 +51,24 @@ Razón: Se utilizó la IA para consultar el uso de algunas clases y métodos de 
 
 Razón: Se utilizó la IA para identificar código redundante, mejorar la organización de algunas clases y revisar la estructura final del proyecto antes de integrarlo al repositorio, sin modificar las decisiones de diseño adoptadas por el equipo.
 
+
+A lo largo del entregable #6
+
+### -Apoyo en la revisión y elaboración de la documentación final
+
+Razón: Se utilizó la IA como apoyo para revisar la estructura y redacción del Manual de Usuario y del Informe de Reflexión Final, verificando que su contenido correspondiera con los requisitos establecidos para el Entregable #6.
+
+### -Revisión de cumplimiento del Entregable #6
+
+Razón: Se consultó la IA para comparar los elementos desarrollados con los requisitos establecidos en el mandato del Entregable #6 e identificar elementos pendientes de documentación, empaquetado y entrega.
+
+### -Revisión y corrección de documentación técnica
+
+Razón: Se utilizó la IA como apoyo durante la revisión final de los documentos para identificar inconsistencias, información pendiente y aspectos de formato, manteniendo el contenido técnico y las decisiones finales bajo responsabilidad del equipo.
+
+Nota: Los usos de IA descritos fueron de apoyo, orientación, revisión y corrección. Las decisiones finales sobre el código, la arquitectura, las pruebas, la documentación y el contenido entregado fueron tomadas y verificadas por los integrantes del equipo.
+
+
 # Registros de Decisiones de Arquitectura (ADR)
 
 ## ADR-001 — Uso de propagación numérica con Orekit
