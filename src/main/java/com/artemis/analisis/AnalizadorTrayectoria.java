@@ -20,18 +20,18 @@ public class AnalizadorTrayectoria {
 
     public void imprimirResultado() {
 
-        IO.println();
-        IO.println("===== ANÁLISIS DEL SOBREVUELO =====");
+        System.out.println();
+        System.out.println("===== ANÁLISIS DEL SOBREVUELO =====");
 
         System.out.printf(
                 "Menor distancia a la Luna: %.2f km%n",
                 menorDistanciaLuna / 1000.0);
 
-        IO.println("Instante del mayor acercamiento:");
+        System.out.println("Instante del mayor acercamiento:");
 
-        IO.println(instante);
+        System.out.println(instante);
 
-        IO.println("===================================");
+        System.out.println("===================================");
 
     }
 

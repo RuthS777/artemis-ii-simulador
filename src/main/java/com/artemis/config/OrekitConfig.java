@@ -21,7 +21,7 @@ public class OrekitConfig {
                 .getDataProvidersManager()
                 .addProvider(new DirectoryCrawler(orekitData));
 
-        IO.println("Datos de Orekit cargados correctamente.");
+        System.out.println("Datos de Orekit cargados correctamente.");
     }
 
     /**
